@@ -14,6 +14,7 @@
 		C351F91C1F99E481007FD8DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C351F91A1F99E481007FD8DF /* LaunchScreen.storyboard */; };
 		C351F91F1F99E481007FD8DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C351F91E1F99E481007FD8DF /* main.m */; };
 		C3571BE61F9A5E92003753E3 /* InstagramManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3571BE51F9A5E92003753E3 /* InstagramManager.m */; };
+		C37FF0911F9E17B1000FB362 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C37FF0901F9E17B1000FB362 /* APIClient.m */; };
 		E5A69E025DDC9CC0B948B0EA /* libPods-InstagramAPIApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91BEBD3BB0AB3512986AB5FD /* libPods-InstagramAPIApp.a */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,8 @@
 		C351F91E1F99E481007FD8DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C3571BE41F9A5E92003753E3 /* InstagramManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstagramManager.h; sourceTree = "<group>"; };
 		C3571BE51F9A5E92003753E3 /* InstagramManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramManager.m; sourceTree = "<group>"; };
+		C37FF08F1F9E17B1000FB362 /* APIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
+		C37FF0901F9E17B1000FB362 /* APIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 				C351F9131F99E481007FD8DF /* ViewController.m */,
 				C3571BE41F9A5E92003753E3 /* InstagramManager.h */,
 				C3571BE51F9A5E92003753E3 /* InstagramManager.m */,
+				C37FF08F1F9E17B1000FB362 /* APIClient.h */,
+				C37FF0901F9E17B1000FB362 /* APIClient.m */,
 				C351F9151F99E481007FD8DF /* Main.storyboard */,
 				C351F9181F99E481007FD8DF /* Assets.xcassets */,
 				C351F91A1F99E481007FD8DF /* LaunchScreen.storyboard */,
@@ -225,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C37FF0911F9E17B1000FB362 /* APIClient.m in Sources */,
 				C351F9141F99E481007FD8DF /* ViewController.m in Sources */,
 				C351F91F1F99E481007FD8DF /* main.m in Sources */,
 				C3571BE61F9A5E92003753E3 /* InstagramManager.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "InstagramManager.h"
+#import "APIClient.h"
 
 @interface ViewController ()
 
@@ -41,67 +42,17 @@
 }
 
 - (IBAction)refreshButtonTapped:(id)sender {
-    [[self getRecentMediaDataTask] resume];
+    [[[APIClient sharedClient] getRecentMediaDataTask:^(NSData *data) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.imageView.image = [UIImage imageWithData:data];
+        });
+    }] resume];
 }
 
 - (void)enableUI:(BOOL)flag {
     self.loginButton.enabled = !flag;
     self.logoutButton.enabled = flag;
     self.refreshButton.enabled = flag;
-}
-
-- (NSURL *)recentMediaURL {
-    return [[InstagramManager sharedManager] recentMediaURL];
-}
-
-- (NSURLSessionDataTask *)getRecentMediaDataTask {
-    return [[NSURLSession sharedSession] dataTaskWithURL:[self recentMediaURL] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (nil != error) {
-            NSLog(@"Error. Couldn't finish request. %@", error.localizedDescription);
-            
-            return;
-        }
-        
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-        
-        if (httpResponse.statusCode < 200 || httpResponse.statusCode >= 300) {
-            NSLog(@"Error. Got status code %ld", (long)httpResponse.statusCode);
-            
-            return;
-        }
-        
-        NSError *parseError;
-        id parsedResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
-        
-        if (nil == parsedResponse) {
-            NSLog(@"Error. Couldn't parse response. %@", parseError.localizedDescription);
-            
-            return;
-        }
-        
-        NSString *imageURLString = parsedResponse[@"data"][0][@"images"][@"standard_resolution"][@"url"];
-        NSURL *imageURL = [NSURL URLWithString:imageURLString];
-        
-        [[[NSURLSession sharedSession] dataTaskWithURL:imageURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            if (nil != error) {
-                NSLog(@"Error. Couldn't finish request. %@", error.localizedDescription);
-                
-                return;
-            }
-            
-            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-            
-            if (httpResponse.statusCode < 200 || httpResponse.statusCode >= 300) {
-                NSLog(@"Error. Got status code %ld", (long)httpResponse.statusCode);
-                
-                return;
-            };
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.imageView.image = [UIImage imageWithData:data];
-            });
-        }] resume];
-    }];
 }
 
 @end
