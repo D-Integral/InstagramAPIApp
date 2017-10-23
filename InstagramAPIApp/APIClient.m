@@ -22,7 +22,7 @@
     return sharedClient;
 }
 
-- (NSURLSessionDataTask *)getRecentMediaDataTask:(void (^)(NSData *data))completionHandler {
+- (NSURLSessionDataTask *)getRecentMediaDataTask:(UpdateRecentMediaBlock)completionHandler {
     return [[NSURLSession sharedSession] dataTaskWithURL:[self recentMediaURL] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (nil != error) {
             NSLog(@"Error. Couldn't finish request. %@", error.localizedDescription);

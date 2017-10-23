@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^UpdateRecentMediaBlock)(NSData *);
+
 @interface APIClient : NSObject
 
 + (id)sharedClient;
 
-- (NSURLSessionDataTask *)getRecentMediaDataTask:(void (^)(NSData *data))completionHandler;
+- (NSURLSessionDataTask *)getRecentMediaDataTask:(UpdateRecentMediaBlock)completionHandler;
 
 @end

@@ -42,17 +42,21 @@
 }
 
 - (IBAction)refreshButtonTapped:(id)sender {
-    [[[APIClient sharedClient] getRecentMediaDataTask:^(NSData *data) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.imageView.image = [UIImage imageWithData:data];
-        });
-    }] resume];
+    [[[APIClient sharedClient] getRecentMediaDataTask:[self updateImageBlock]] resume];
 }
 
 - (void)enableUI:(BOOL)flag {
     self.loginButton.enabled = !flag;
     self.logoutButton.enabled = flag;
     self.refreshButton.enabled = flag;
+}
+
+- (UpdateRecentMediaBlock)updateImageBlock {
+    return ^(NSData *data) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.imageView.image = [UIImage imageWithData:data];
+        });
+    };
 }
 
 @end
