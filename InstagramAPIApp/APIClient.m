@@ -1,9 +1,9 @@
 //
 //  APIClient.m
-//  InstagramAPIApp
+//  WebAPIApp
 //
 //  Created by Dmytro Skorokhod on 10/23/17.
-//  Copyright © 2017 D-Integral. All rights reserved.
+//  Copyright © 2017 Dmytro Skorokhod. All rights reserved.
 //
 
 #import "APIClient.h"

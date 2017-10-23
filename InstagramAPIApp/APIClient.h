@@ -1,6 +1,6 @@
 //
 //  APIClient.h
-//  InstagramAPIApp
+//  WebAPIApp
 //
 //  Created by Dmytro Skorokhod on 10/23/17.
 //  Copyright © 2017 Dmytro Skorokhod. All rights reserved.
