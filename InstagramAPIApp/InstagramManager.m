@@ -17,16 +17,10 @@ static NSString * const kSecret = @"20249876abc941f19f36531a3618bba3";
 
 static NSString * const kAuthorizationURLString = @"https://api.instagram.com/oauth/authorize";
 static NSString * const kTokenURLString = @"https://api.instagram.com/oauth/access_token";
-static NSString * const kRedirectURLString = @"http://djp3.westmont.edu/classes/2015-coursera-live/redirect.php/myscheme/thing.com";
+static NSString * const kOutgoingRedirectURLString = @"http://djp3.westmont.edu/classes/2015-coursera-live/redirect.php/myscheme/thing.com";
+static NSString * const kIncomingRedirectURLString = @"myscheme://thing.com";
 
 static NSString * const kRecentMediaBaseURLString = @"https://api.instagram.com/v1/users/self/media/recent/?access_token=";
-
-@interface InstagramManager ()
-
-@property (atomic) NSString *outgoingRedirect;
-@property (atomic) NSString *incomingRedirect;
-
-@end
 
 @implementation InstagramManager
 
@@ -44,9 +38,6 @@ static NSString * const kRecentMediaBaseURLString = @"https://api.instagram.com/
 #pragma mark -
 
 - (void)setup {
-    self.outgoingRedirect = @"http://djp3.westmont.edu/classes/2015-coursera-live/redirect.php/myscheme/thing.com";
-    self.incomingRedirect = @"myscheme://thing.com";
-    
     [[NXOAuth2AccountStore sharedStore] setClientID:kClientId
                                              secret:kSecret
                                    authorizationURL:[self authorizationURL]
@@ -56,8 +47,8 @@ static NSString * const kRecentMediaBaseURLString = @"https://api.instagram.com/
 }
 
 - (BOOL)openURL:(nonnull NSURL *)url {
-    if ([self.incomingRedirect containsString:[url scheme]] && [self.incomingRedirect containsString:[url host]]) {
-        NSURL *constructed = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", self.outgoingRedirect, [url query]]];
+    if ([kIncomingRedirectURLString containsString:[url scheme]] && [kIncomingRedirectURLString containsString:[url host]]) {
+        NSURL *constructed = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", kOutgoingRedirectURLString, [url query]]];
         return [[NXOAuth2AccountStore sharedStore] handleRedirectURL:constructed];
     }
     
@@ -109,7 +100,7 @@ static NSString * const kRecentMediaBaseURLString = @"https://api.instagram.com/
 }
 
 - (NSURL *)redirectURL {
-    return [NSURL URLWithString:self.outgoingRedirect];
+    return [NSURL URLWithString:kOutgoingRedirectURLString];
 }
 
 - (NSString *)recentMediaURLAsString {
