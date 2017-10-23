@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "InstagramManager.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [[InstagramManager sharedManager] setup];
+    
     return YES;
 }
 
@@ -47,5 +49,8 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)app openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    return [[InstagramManager sharedManager] openURL:url];
+}
 
 @end

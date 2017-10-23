@@ -2,8 +2,8 @@
 //  main.m
 //  InstagramAPIApp
 //
-//  Created by administrator on 10/20/17.
-//  Copyright © 2017 D-Integral. All rights reserved.
+//  Created by Dmytro Skorokhod on 10/20/17.
+//  Copyright © 2017 Dmytro Skorokhod. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
