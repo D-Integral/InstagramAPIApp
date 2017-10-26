@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,7 +32,7 @@
                                     <action selector="logoutButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9bG-Ao-HDP"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lviv" translatesAutoresizingMaskIntoConstraints="NO" id="aWY-ht-6EF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aWY-ht-6EF">
                                 <rect key="frame" x="0.0" y="146" width="375" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aWY-ht-6EF" secondAttribute="height" multiplier="1:1" id="JyX-LH-spC"/>
@@ -45,25 +45,18 @@
                                     <action selector="refreshButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rch-HD-062"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lviv city, Ukraine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNu-eU-uHp">
-                                <rect key="frame" x="123" y="529" width="129" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="aWY-ht-6EF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8fA-ju-2Ln"/>
-                            <constraint firstItem="JcJ-Dv-lC9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GNu-eU-uHp" secondAttribute="bottom" constant="8" id="Ebo-aO-Zwm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YnQ-Ax-htK" secondAttribute="trailing" constant="16" id="EjF-Ee-QFi"/>
                             <constraint firstItem="UG1-6d-8YT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GMV-Nl-Ze4"/>
-                            <constraint firstItem="GNu-eU-uHp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Kus-mt-fs3"/>
+                            <constraint firstItem="UG1-6d-8YT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="TT1-J3-tGq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JcJ-Dv-lC9" secondAttribute="bottom" constant="20" id="UFi-8Z-kRg"/>
                             <constraint firstItem="JcJ-Dv-lC9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cuG-i4-gtW"/>
                             <constraint firstItem="aWY-ht-6EF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lcA-Uz-xf4"/>
                             <constraint firstItem="aWY-ht-6EF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="og2-Oi-ejM"/>
                             <constraint firstItem="YnQ-Ax-htK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="rnP-Xg-60Y"/>
-                            <constraint firstItem="GNu-eU-uHp" firstAttribute="top" secondItem="aWY-ht-6EF" secondAttribute="bottom" constant="8" id="rvi-Ia-QHo"/>
                             <constraint firstItem="YnQ-Ax-htK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="s15-pN-cGp"/>
                             <constraint firstItem="aWY-ht-6EF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sFo-Te-Vxn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UG1-6d-8YT" secondAttribute="trailing" constant="16" id="zh1-Ka-OaU"/>
@@ -71,7 +64,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="descriptionLabel" destination="GNu-eU-uHp" id="9vZ-bG-baq"/>
                         <outlet property="imageView" destination="aWY-ht-6EF" id="pE0-EY-EaL"/>
                         <outlet property="loginButton" destination="YnQ-Ax-htK" id="RhO-C8-OXZ"/>
                         <outlet property="logoutButton" destination="UG1-6d-8YT" id="nMX-aa-jWf"/>
@@ -83,7 +75,4 @@
             <point key="canvasLocation" x="73.5" y="131.5"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Lviv" width="960" height="720"/>
-    </resources>
 </document>
